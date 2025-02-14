@@ -25,6 +25,10 @@ app.use(morgan("dev"));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/news", NewsRouter);
 
+app.get("/", (req, res) => {
+  res.send("hi vercel");
+});
+
 /*
  * SERVER START
  */
