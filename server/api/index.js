@@ -1,5 +1,8 @@
+require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const { NewsRouter } = require("../src/routes/news.routes");
+const { connectDB } = require("../src/db/connectDB.db");
 const app = express();
 
 app.use(express.json());
@@ -13,7 +16,7 @@ const PORT = process.env.PORT;
 
 (async () => {
   try {
-    await connectDb();
+    await connectDB();
     app.listen(PORT, () => {
       console.log("server is listening on http://localhost:" + PORT);
     });
